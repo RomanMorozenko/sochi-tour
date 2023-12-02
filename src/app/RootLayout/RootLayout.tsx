@@ -1,6 +1,6 @@
 import {Header} from "../../components/Header/Header.jsx";
 import {Outlet} from "react-router-dom";
-import s from './rootLayout.module.css'
+import s from './rootLayout.module.scss'
 import { getDataFromDB } from "../../utils/loaders.js";
 import { useAppDispatch } from "../../hooks/useAppDispatch.js";
 import {setTours} from "../../pages/tours-reducer.js";
@@ -13,7 +13,7 @@ export const RootLayout = () => {
 
     useEffect(()=>{
         getDataFromDB(dispatch, setTours, setExcursions)
-    },[])
+    },[dispatch])
     
     return (
         <div style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>

@@ -1,7 +1,7 @@
 .header {
     width: 100%;
     height: 80px;
-    background-color: var(--main-color);
+    background-color: white
 }
 
 .container {
@@ -12,17 +12,27 @@
 }
 
 .logo {
-    color: white;
+    color: var(--main-color);
 }
 
 .headerLink {
     text-decoration: none;
 }
 
+.headerLink span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.headerLink span:hover {
+    color: var(--main-color);
+    text-shadow: -1px -1px 10px var(--main-color);
+}
+
 .headerItem {
-    color: white;
+    color: #707070;
     margin-right: 10px;
-    font-family: var(--main-font);
+    font-family: Montserrat,sans-serif;
 }
 
 @media (max-width: 428px) {

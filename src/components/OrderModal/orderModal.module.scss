@@ -1,0 +1,64 @@
+.module {
+    box-shadow: 0px 0px 9px 0px rgba(195, 193, 193, 0.75);
+    padding:10px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
+    align-self: start;
+    position: sticky;
+    top:20px;
+    text-align: center;
+}
+
+.moduleTitle {
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.moduleDatePicker {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #707070;
+}
+
+.dateInput {
+    width: 80%;
+}
+
+.datePickerInfo {
+    color: #707070;
+}
+
+.datePickerInfo:hover {
+    cursor: pointer;
+}
+
+.priceContainer {
+    width: 80%;
+    margin: 30px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--main-font);
+    font-size: 20px;
+}
+
+.description {
+    font-family: var(--main-font);
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+@media (max-width: 428px) {
+    .module {
+        position: relative;
+        width: 100%;
+        padding: 0;
+    }
+}
+
+

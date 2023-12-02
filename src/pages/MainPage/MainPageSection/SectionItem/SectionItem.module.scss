@@ -1,0 +1,57 @@
+.flexItem {
+    margin-top: 50px;
+    width: 345px;
+    height: 328px;
+    box-shadow: 2px 1px 10px 0px rgba(187, 183, 183, 0.75);
+    border-radius: 25px;
+}
+
+.flexItem:hover {
+    box-shadow: 2px 1px 14px 6px rgba(207, 201, 201, 0.75);
+}
+
+.navlink {
+    text-decoration: none;
+    color: black;
+    font-family: var(--main-font)
+}
+
+.itemInfo {
+    padding: 12px 20px 18px 20px;
+}
+
+.itemImage {
+    width: 345px;
+    height: 172px;
+    border-top-right-radius: 25px;
+    border-top-left-radius:  25px;
+}
+
+.itemTitle {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    margin-bottom: 13px;
+    font-family: var(--main-font);
+    color: #707070;
+    font-weight: bold;
+}
+
+.itemDuration {
+    display: flex;
+    align-items: center;
+}
+
+.itemPrice {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.itemPrice svg{
+    color: #707070;
+    transform: rotate(135deg);
+}

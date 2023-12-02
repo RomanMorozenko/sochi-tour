@@ -1,4 +1,4 @@
-import s from './orderModal.module.css';
+import s from './orderModal.module.scss';
 import {ActionButton} from "../ActionButton/ActionButton.tsx";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
@@ -7,17 +7,18 @@ import {useState} from "react";
 import dayjs, {Dayjs} from "dayjs";
 import { useAppDispatch } from '../../hooks/useAppDispatch.ts';
 import { pickDate } from '../../pages/order-reducer.ts';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import Tooltip from '@mui/material/Tooltip';
 
 
 
 type OrderModalPropsType = {
-    rating:string
     startingPrice:string
     peopleCount:string
     duration:string
     description:string
 }
-export const OrderModal = (props:OrderModalPropsType) => {
+export const OrderModal = ({startingPrice,description}:OrderModalPropsType) => {
 
     const dispatch = useAppDispatch()
     const date = Date.now()
@@ -32,19 +33,28 @@ export const OrderModal = (props:OrderModalPropsType) => {
     }
 
     return <div className={s.module}>
-        <div className={s.text}>
-            Стоимость экскурсии:
-            <div className={s.price}>{props.startingPrice} рублей</div>
+        <div className={s.moduleTitle}>
+            Заказ экскурсии:
         </div>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <div className={s.moduleDatePicker}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
+                    className={s.dateInput}
                     value={value}
                     onChange={(newValue) => setValue(newValue)}
                 />
             </LocalizationProvider>
+            <Tooltip title="Выберите дату">
+                <HelpOutlineIcon className={s.datePickerInfo}/>
+            </Tooltip>
+        </div>
+        <div className={s.priceContainer}>
+            <span>Итого:</span>
+            <span>{startingPrice} рублей</span>
+        </div>
         <ActionButton onClick={handleButtonClick} />
         <p className={s.description}>
-            {props.description}
+            {description}
         </p>
     </div>
 }

@@ -1,0 +1,21 @@
+.mainSectionMenu {
+    padding-top: 50px;
+}
+
+.sectionTitle {
+    font-family: var(--header-font);
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 0;
+    // display: inline-block;
+    text-align: center;
+}
+
+.sectionMenuItems {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+

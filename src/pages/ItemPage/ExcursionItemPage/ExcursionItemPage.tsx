@@ -74,11 +74,8 @@ export const ExcursionItemPage = () => {
                     }
                 </ul>
             </section>
-            <section className={s.reviews} id='reviews'>
+            {/* <section className={s.reviews} id='reviews'>
                 <h2>Отзывы: </h2>
-                {/*<ReviewItem date={excursionReview.reviewDate} text={excursionReview.reviewText} customerName={excursionReview.customerName}/>*/}
-                {/*<ReviewItem date={excursionReview.reviewDate} text={excursionReview.reviewText} customerName={excursionReview.customerName}/>*/}
-                {/*<ReviewItem date={excursionReview.reviewDate} text={excursionReview.reviewText} customerName={excursionReview.customerName}/>*/}
                 <section className={s.tags}>
                     {
                         excursion.tags.map((tag, index) => {
@@ -86,7 +83,7 @@ export const ExcursionItemPage = () => {
                         })
                     }
                 </section>
-            </section>
+            </section> */}
         </div>
         <h2>Другие экскурсии:</h2>
         <div className={s.otherInfo}>
