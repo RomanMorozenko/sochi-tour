@@ -1,0 +1,35 @@
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: var(--main-color);
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+}
+
+.headerLink {
+    text-decoration: none;
+}
+
+.headerItem {
+    color: white;
+    margin-right: 10px;
+    font-family: var(--main-font);
+}
+
+@media (max-width: 428px) {
+ .header {
+     width: 100vw;
+     padding-left: 10px;
+     padding-right: 10px;
+     height: 60px;
+ }
+}

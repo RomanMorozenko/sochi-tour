@@ -1,0 +1,70 @@
+.container {
+    min-height: 400px;
+    grid-column: 1/3;
+    grid-row: 2;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.mainItem {
+    grid-column: 1;
+    grid-row: 1/5;
+}
+
+.sideItemOne {
+    grid-column: 2;
+    grid-row: 1/3;
+    display: flex;
+    gap: 5px;
+}
+
+.sideItemTwo {
+    grid-column: 2;
+    grid-row: 3/5;
+    background-color: blue;
+}
+
+.sideItemThree {
+    width: 100%;
+    height: 100%;
+}
+
+.sideItemFour {
+    width: 50%;
+    height: 100%;
+}
+
+.sideItemFive {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sideItemSix {
+    width: 100%;
+    height: 50%;
+}
+
+.sideItemSeven {
+    width: 100%;
+    height: 50%;
+}
+
+.mainItem:hover,
+.sideItemOne:hover,
+.sideItemTwo:hover,
+.sideItemThree:hover,
+.sideItemFour:hover,
+.sideItemFive:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 428px) {
+    .container {
+        display: none;
+    }
+}

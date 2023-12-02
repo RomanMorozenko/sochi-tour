@@ -1,0 +1,24 @@
+.submitBtn {
+    all:unset;
+    box-sizing: border-box;
+    background-color: var(--main-color);
+    margin-top: 3px;
+    height: 7vh;
+    text-align: center;
+    color: white;
+    font-family: var(--header-font);
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.submitBtn:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.submitBtn:active {
+    cursor: pointer;
+    border: 2px solid white;
+    font-size: 19px;
+}

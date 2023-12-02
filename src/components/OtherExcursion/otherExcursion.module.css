@@ -1,0 +1,47 @@
+.otherExcursion {
+    position: relative;
+    width: 49%;
+    background: url("https://xn--80aabjhkiabkj9b0amel2g.xn--p1ai/static/city/9830-5971.jpg");
+    background-size: cover;
+    height: 250px;
+    font-family: Arial,sans-serif;
+    font-size: 30px;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.overlayActive{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    all:unset;
+    width: 30%;
+    height: 20%;
+    background-color: var(--main-color);
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+    border-radius: 1px;
+}
+
+@media (max-width: 428px) {
+    .otherExcursion {
+        width: 100%;
+    }
+}

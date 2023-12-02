@@ -1,0 +1,32 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+    /* flex-direction: column; */
+    margin: 30px auto 30px auto;
+}
+
+.formWrapper {
+    width: 40%;
+}
+
+.info {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 30vh;
+    color:gray;
+    box-shadow: 0px 6px 15px 1px rgba(181,181,181,0.75);
+    -webkit-box-shadow: 0px 6px 15px 1px rgba(181,181,181,0.75);
+    -moz-box-shadow: 0px 6px 15px 1px rgba(181,181,181,0.75);
+}
+
+.formTitle {
+    font-family: var(--header-font);
+}
+
+form {
+    width: 30%;
+}

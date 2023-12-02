@@ -1,0 +1,42 @@
+.module {
+    border-top: 5px solid royalblue;
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    color:black;
+    padding:10px;
+    font-family:Arial, sans-serif;
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
+    align-self: start;
+    position: sticky;
+    top:20px;
+    text-align: center;
+}
+
+.text {
+    font-family: var(--main-font);
+    font-size: 14px;
+    text-align: center;
+}
+
+.price {
+    margin: 10px auto 0 auto;
+    font-family: var(--header-font);
+    font-size: 26px;
+}
+
+.description {
+    font-family: var(--main-font);
+    font-size: 14px;
+}
+
+@media (max-width: 428px) {
+    .module {
+        position: relative;
+        width: 100%;
+        padding: 0;
+    }
+}
+
+

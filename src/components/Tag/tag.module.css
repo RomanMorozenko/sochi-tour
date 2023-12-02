@@ -1,0 +1,18 @@
+.tag {
+    all:unset;
+    box-sizing: border-box;
+    width: auto;
+    height: 30px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px;
+    font-family: Arial,sans-serif;
+    margin-left: 3px;
+    font-size: 14px;
+}
+
+.tag:hover {
+    cursor: pointer;
+    border: 2px solid lightgray;
+}

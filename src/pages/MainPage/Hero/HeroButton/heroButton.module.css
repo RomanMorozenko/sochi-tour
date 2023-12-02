@@ -1,0 +1,66 @@
+.heroButton {
+    all:unset;
+    font-family: var(--header-font);
+    font-size: 20px;
+    width: 17vw;
+    height: 50px;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    border-radius: 5px ;
+    margin-bottom: 10px;
+    transition: ease-in-out 0.2s;
+}
+
+.heroButton:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.active {
+    all:unset;
+    font-family: var(--header-font);
+    font-size: 24px;
+    width: 17vw;
+    height: 60px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+    transition: ease-in-out 0.2s;
+}
+
+.active:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 428px) {
+    .heroButton {
+        /*font-family: var(--header-font);*/
+        font-size: 10px;
+        /*width: 17vw;*/
+        /*height: 50px;*/
+        /*background-color: var(--main-color);*/
+        /*color: white;*/
+        /*text-align: center;*/
+        /*border-radius: 5px ;*/
+        /*margin-bottom: 10px;*/
+        transition: ease-in-out 0.2s;
+    }
+
+    .active {
+        /*all:unset;*/
+        /*font-family: var(--header-font);*/
+        font-size: 10px;
+        /*width: 17vw;*/
+        height: 50px;
+        /*background-color: white;*/
+        /*color: black;*/
+        /*text-align: center;*/
+        border-radius: 5px;
+        /*margin-bottom: 0;*/
+        transition: ease-in-out 0.2s;
+    }
+}
