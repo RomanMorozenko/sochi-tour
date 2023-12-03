@@ -8,7 +8,7 @@ export const Header = () => {
                 <h1 className={s.logo}>Логотип</h1>
             </NavLink>
             <div>
-                <NavLink className={s.headerLink} to='registration'>
+                <NavLink className={s.headerLink} to='/signup'>
                     <span className={s.headerItem}>Регистрация</span>
                 </NavLink>
                 <NavLink className={s.headerLink} to='login'>
