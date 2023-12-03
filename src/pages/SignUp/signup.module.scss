@@ -1,0 +1,12 @@
+.formTitle {
+  text-align: center;
+  font-family: var(--main-font);
+  font-size: 20px;
+}
+
+.signupForm {
+  margin: 20px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
