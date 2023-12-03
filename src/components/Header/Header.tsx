@@ -11,7 +11,7 @@ export const Header = () => {
           <NavLink className={s.headerLink} to="/signup">
             <span className={s.headerItem}>Регистрация</span>
           </NavLink>
-          <NavLink className={s.headerLink} to="login">
+          <NavLink className={s.headerLink} to="/signin">
             <span className={s.headerItem}>Войти</span>
           </NavLink>
         </div>

@@ -1,61 +1,53 @@
 import { z } from 'zod';
-import s from './signup.module.scss';
+import s from '../SignUp/signup.module.scss';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { setUser } from '../../state/userSlice';
 
-export const SignUp = () => {
+export const SignIn = () => {
   return (
     <div className={s.formContainer}>
       <h1 className={s.formTitle}>Новый пользователь:</h1>
-      <RegistrationForm />
+      <SignInForm />
     </div>
   );
 };
 
-const loginSchema = z
-  .object({
-    email: z.string().email('Please enter a valid email'),
-    password: z.string().min(6, 'Password mus be at least 3 characters'),
-    confirmPassword: z.string().min(6, 'Password mus be at least 3 characters')
-  })
-  .refine(
-    (data: { password: string; confirmPassword: string }) => data.password === data.confirmPassword,
-    {
-      message: "Passwords don't match",
-      path: ['confirmPassword']
-    }
-  );
+const loginSchema = z.object({
+  email: z.string().email('Please enter a valid email'),
+  password: z.string().min(6, 'Wrong password')
+});
 
 type FormValues = z.infer<typeof loginSchema>;
 
-export const RegistrationForm = () => {
+export const SignInForm = () => {
   const {
     control,
     handleSubmit,
-    reset
-    // formState: { errors }
+    reset,
+    formState: { errors }
   } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
-      password: '',
-      confirmPassword: ''
+      password: ''
     }
   });
-
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleSubmitForm = async (data: Omit<FormValues, 'confirmPassword'>) => {
     const auth = getAuth();
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+      const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
       const user = userCredential.user;
-      console.log(user);
+      dispatch(setUser(user.email || ''));
       reset();
       navigate('/');
     } catch (err: any) {
@@ -78,16 +70,8 @@ export const RegistrationForm = () => {
         defaultValue=""
         render={({ field }) => <TextField label="Пароль" variant="outlined" {...field} />}
       />
-      <Controller
-        name="confirmPassword"
-        control={control}
-        defaultValue=""
-        render={({ field }) => (
-          <TextField label="Подтвердите пароль" variant="outlined" {...field} />
-        )}
-      />
       <Button variant="contained" type="submit">
-        Отправить
+        Войти
       </Button>
     </form>
   );

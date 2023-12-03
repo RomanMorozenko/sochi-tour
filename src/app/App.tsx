@@ -18,6 +18,7 @@ import { setTours } from '../pages/tours-reducer.ts';
 import { TourItemPage } from '../pages/ItemPage/TourItemPage/TourItemPage.tsx';
 import { MainPageContainer } from '../pages/MainPage/MainPageContainer.tsx';
 import { SignUp } from '../pages/SignUp/SignUp.tsx';
+import { SignIn } from '../pages/SignIn/SignIn.tsx';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -45,6 +46,7 @@ function App() {
         />
         <Route path="/:section/:id/orderform" element={<OrderFormPage />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Route>
     )
   );
