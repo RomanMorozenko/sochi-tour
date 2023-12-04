@@ -1,0 +1,57 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: white;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--main-color);
+}
+
+.headerLink {
+  text-decoration: none;
+}
+
+.headerLink span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.headerLink span:hover {
+  color: var(--main-color);
+  text-shadow: -1px -1px 10px var(--main-color);
+}
+
+.headerItem {
+  color: #707070;
+  margin-right: 10px;
+  font-family: Montserrat, sans-serif;
+}
+
+.userIconContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #707070;
+}
+
+.userIconContainer:hover {
+  cursor: pointer;
+  color: #a2a1a1;
+}
+
+@media (max-width: 428px) {
+  .header {
+    width: 100vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 60px;
+  }
+}

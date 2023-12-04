@@ -29,8 +29,8 @@ export const SignInForm = () => {
   const {
     control,
     handleSubmit,
-    reset,
-    formState: { errors }
+    reset
+    // formState: { errors }
   } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
