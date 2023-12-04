@@ -18,14 +18,14 @@ export const SignUp = () => {
 
 const loginSchema = z
   .object({
-    email: z.string().email('Please enter a valid email'),
-    password: z.string().min(6, 'Password mus be at least 3 characters'),
-    confirmPassword: z.string().min(6, 'Password mus be at least 3 characters')
+    email: z.string().email('Введите правильный email'),
+    password: z.string().min(6, 'Пароль должен быть длиннее 6 символов'),
+    confirmPassword: z.string()
   })
   .refine(
     (data: { password: string; confirmPassword: string }) => data.password === data.confirmPassword,
     {
-      message: "Passwords don't match",
+      message: 'Пароли не совпадают',
       path: ['confirmPassword']
     }
   );
@@ -36,8 +36,8 @@ export const RegistrationForm = () => {
   const {
     control,
     handleSubmit,
-    reset
-    // formState: { errors }
+    reset,
+    formState: { errors }
   } = useForm<FormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -70,20 +70,33 @@ export const RegistrationForm = () => {
         name="email"
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField label="Email" variant="outlined" {...field} />}
+        render={({ field }) => (
+          <>
+            <TextField label="Email" variant="outlined" {...field} />
+            {errors.email && <p>{errors.email.message}</p>}
+          </>
+        )}
       />
       <Controller
         name="password"
         control={control}
         defaultValue=""
-        render={({ field }) => <TextField label="Пароль" variant="outlined" {...field} />}
+        render={({ field }) => (
+          <>
+            <TextField label="Пароль" variant="outlined" {...field} />
+            {errors.password && <p>{errors.password.message}</p>}
+          </>
+        )}
       />
       <Controller
         name="confirmPassword"
         control={control}
         defaultValue=""
         render={({ field }) => (
-          <TextField label="Подтвердите пароль" variant="outlined" {...field} />
+          <>
+            <TextField label="Подтвердите пароль" variant="outlined" {...field} />
+            {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+          </>
         )}
       />
       <Button variant="contained" type="submit">
