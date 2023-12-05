@@ -73,7 +73,7 @@ export const RegistrationForm = () => {
         render={({ field }) => (
           <>
             <TextField label="Email" variant="outlined" {...field} />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && <p className={s.errorText}>{errors.email.message}</p>}
           </>
         )}
       />
@@ -84,7 +84,7 @@ export const RegistrationForm = () => {
         render={({ field }) => (
           <>
             <TextField label="Пароль" variant="outlined" {...field} />
-            {errors.password && <p>{errors.password.message}</p>}
+            {errors.password && <p className={s.errorText}>{errors.password.message}</p>}
           </>
         )}
       />
@@ -95,7 +95,9 @@ export const RegistrationForm = () => {
         render={({ field }) => (
           <>
             <TextField label="Подтвердите пароль" variant="outlined" {...field} />
-            {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+            {errors.confirmPassword && (
+              <p className={s.errorText}>{errors.confirmPassword.message}</p>
+            )}
           </>
         )}
       />
