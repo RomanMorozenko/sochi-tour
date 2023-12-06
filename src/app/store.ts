@@ -3,9 +3,11 @@ import { excursionsReducer } from '../pages/excursions-reducer.ts';
 import thunkMiddleware, { ThunkDispatch } from 'redux-thunk';
 import { toursReducer } from '../pages/tours-reducer.ts';
 import { orderReducer } from '../pages/order-reducer.ts';
-import { userReducer } from '../state/userSlice.ts';
+import { userReducer } from '../state/userSlice/userSlice.ts';
+import { appReducer } from '../state/appSlice/appSlice.ts';
 
 const rootReducer = combineReducers({
+  app: appReducer,
   excursions: excursionsReducer,
   tours: toursReducer,
   order: orderReducer,

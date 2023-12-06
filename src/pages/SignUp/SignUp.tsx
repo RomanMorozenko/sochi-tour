@@ -4,8 +4,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, Controller } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { signUpThunk } from '../../state/userSlice/userSlice';
 
 export const SignUp = () => {
   return (
@@ -47,20 +48,14 @@ export const RegistrationForm = () => {
     }
   });
 
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleSubmitForm = async (data: Omit<FormValues, 'confirmPassword'>) => {
-    const auth = getAuth();
-
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
-      const user = userCredential.user;
-      console.log(user);
+    const response = await dispatch(signUpThunk({ email: data.email, password: data.password }));
+    if (!response.payload) {
       reset();
       navigate('/');
-    } catch (err: any) {
-      const errorMessage = err.message;
-      console.log(errorMessage);
     }
   };
 

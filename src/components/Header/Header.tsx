@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { signOut, onAuthStateChanged, getAuth } from 'firebase/auth';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { clearUser, setUser } from '../../state/userSlice';
+import { clearUser, setUser } from '../../state/userSlice/userSlice';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';

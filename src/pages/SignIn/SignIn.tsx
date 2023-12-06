@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { signInThunk } from '../../state/userSlice';
+import { signInThunk } from '../../state/userSlice/userSlice';
 
 export const SignIn = () => {
   return (
@@ -41,15 +41,10 @@ export const SignInForm = () => {
   const navigate = useNavigate();
 
   const handleSubmitForm = async (data: Omit<FormValues, 'confirmPassword'>) => {
-    try {
-      const res = await dispatch(signInThunk({ email: data.email, password: data.password }));
-      if (res.payload) {
-        reset();
-        navigate('/');
-      }
-    } catch (err: any) {
-      const errorMessage = err.message;
-      console.log(errorMessage);
+    const res = await dispatch(signInThunk({ email: data.email, password: data.password }));
+    if (!res.payload) {
+      reset();
+      navigate('/');
     }
   };
 

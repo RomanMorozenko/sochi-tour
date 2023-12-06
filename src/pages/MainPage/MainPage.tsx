@@ -1,12 +1,11 @@
-import {Hero} from "./Hero/Hero.jsx";
-import {Outlet} from "react-router-dom";
-
+import { Hero } from './Hero/Hero.jsx';
+import { Outlet } from 'react-router-dom';
 
 export const MainPage = () => {
-    return (
-        <div>
-            <Hero/>
-            <Outlet/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Hero />
+      <Outlet />
+    </div>
+  );
+};
