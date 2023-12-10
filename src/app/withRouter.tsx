@@ -17,11 +17,12 @@ import { getDataFromDB } from '../utils/loaders';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 import { setTours } from '../pages/tours-reducer';
 import { setExcursions } from '../pages/excursions-reducer';
+import { ProfilePage } from '../pages/Profile/profile';
 
 export const WithRouter = () => {
   const dispatch = useAppDispatch();
 
-  const publicRoutes: RouteObject[] = [
+  const Routes: RouteObject[] = [
     {
       path: '/',
       element: <RootLayout />,
@@ -61,26 +62,30 @@ export const WithRouter = () => {
         {
           path: '/signin',
           element: <SignIn />
+        },
+        {
+          path: '/profile',
+          element: <PrivateRoutes />,
+          children: [
+            {
+              path: '',
+              element: <ProfilePage />
+            }
+          ]
         }
       ]
     }
   ];
 
-  const privateRoutes: RouteObject[] = [
-    {
-      path: '/profile',
-      element: <div>Profile</div>
-    }
-  ];
+  // const privateRoutes: RouteObject[] = [
+  //   {
+  //     path: '/profile',
+  //     element: <ProfilePage />
+  //   }
+  // ];
 
   const router = createBrowserRouter([
-    {
-      path: '/profile',
-      element: <PrivateRoutes />,
-      children: privateRoutes,
-      errorElement: <div>error</div>
-    },
-    ...publicRoutes,
+    ...Routes,
     {
       path: '*',
       element: <div>error</div>
