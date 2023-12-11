@@ -1,5 +1,5 @@
 import s from './photosModal.module.css';
-import { SingleItemSlider } from '../SingleItemSlider/SingleItemSlider.tsx';
+// import { SingleItemSlider } from '../SingleItemSlider/SingleItemSlider.tsx';
 
 type PhotosModalPropsType = {
   active: boolean;

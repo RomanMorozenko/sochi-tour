@@ -12,8 +12,8 @@ import { AppRootStateType } from '../../../app/store.ts';
 import { OtherExcursion } from '../../../components/OtherExcursion/OtherExcursion.tsx';
 import { useState } from 'react';
 import { PhotosModal } from '../../../components/PhotosModal/PhotosModal.tsx';
-import { useMediaQuery } from '../../../hooks/useMediaQuery.ts';
-import { SingleItemSlider } from '../../../components/SingleItemSlider/SingleItemSlider.tsx';
+// import { useMediaQuery } from '../../../hooks/useMediaQuery.ts';
+// import { SingleItemSlider } from '../../../components/SingleItemSlider/SingleItemSlider.tsx';
 
 export type ExcursionsDataType = {
   mainInfoRes: ExcursionsCollectionResponseType;
@@ -22,7 +22,7 @@ export type ExcursionsDataType = {
 
 export const ExcursionItemPage = () => {
   const [modalIsActive, setModalIsActive] = useState(false);
-  const matches = useMediaQuery('(max-width: 428px)');
+  // const matches = useMediaQuery('(max-width: 428px)');
 
   const handleSetModal = () => {
     setModalIsActive(!modalIsActive);
@@ -42,7 +42,7 @@ export const ExcursionItemPage = () => {
       <h1 className={s.pageTitle}>{excursion.title}</h1>
       <div className={s.gridContainer}>
         <ItemInfoModal rating={4.8} visitors={101} reviewsCount={34} />
-        {matches && <SingleItemSlider />}
+        {/* {matches && <SingleItemSlider />} */}
         <PhotosFrame callback={handleSetModal} />
         <PhotosModal active={modalIsActive} setActive={handleSetModal} />
         <OrderModal

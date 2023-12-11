@@ -1,48 +1,48 @@
-import { useState } from 'react';
-import dayjs, { Dayjs } from 'dayjs';
-import { SubmitHandler, useForm } from 'react-hook-form';
+// import { useState } from 'react';
+// import dayjs, { Dayjs } from 'dayjs';
+// import { SubmitHandler, useForm } from 'react-hook-form';
 import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
 // import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 // import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 // import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 // import Box from "@mui/material/Box";
 // import MenuItem from "@mui/material/MenuItem";
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from 'yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
 import s from './orderForm.module.css';
 
-interface IFormInput {
-  firstName: string;
-  phoneNumber: number;
-  additional: string | undefined;
-  excursionTitle: string | undefined;
-}
+// interface IFormInput {
+//   firstName: string;
+//   phoneNumber: number;
+//   additional: string | undefined;
+//   excursionTitle: string | undefined;
+// }
 
 export const OrderForm = (props: { title: string }) => {
-  const [value, setValue] = useState<Dayjs | null>(dayjs('2022-04-17'));
-  const [callTime, setCallTime] = useState('');
+  // const [value, setValue] = useState<Dayjs | null>(dayjs('2022-04-17'));
+  // const [callTime, setCallTime] = useState('');
 
-  const schema = yup.object().shape({
-    firstName: yup.string().required('Введите имя, пожалуйста'),
-    phoneNumber: yup.number().required(),
-    additional: yup.string(),
-    excursionTitle: yup.string()
-  });
+  // const schema = yup.object().shape({
+  //   firstName: yup.string().required('Введите имя, пожалуйста'),
+  //   phoneNumber: yup.number().required(),
+  //   additional: yup.string(),
+  //   excursionTitle: yup.string()
+  // });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<IFormInput>({
-    resolver: yupResolver(schema)
-  });
-  const handleChange = (value: any) => {
-    setCallTime(value);
-  };
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    // console.log({ ...data, date: orderDate, time: callTime })
-  };
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors }
+  // } = useForm<IFormInput>({
+  //   resolver: yupResolver(schema)
+  // });
+  // const handleChange = (value: any) => {
+  //   setCallTime(value);
+  // };
+  // const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  //   // console.log({ ...data, date: orderDate, time: callTime })
+  // };
 
   const textFieldStyles = {
     width: '100%',
@@ -54,9 +54,9 @@ export const OrderForm = (props: { title: string }) => {
   return (
     <>
       <h2>{props.title}</h2>
-      <form style={{ width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
+      <form style={{ width: '100%' }} onSubmit={() => ''}>
         <FormControl style={textFieldStyles}>
-          <TextField
+          {/* <TextField
             type="text"
             {...register('firstName')}
             style={textFieldStyles}
@@ -75,7 +75,7 @@ export const OrderForm = (props: { title: string }) => {
             style={textFieldStyles}
             label="Дополнительно"
             variant="standard"
-          />
+          /> */}
           {/* <h3>Выберите дату:</h3> */}
           {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker

@@ -16,8 +16,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { OtherExcursion } from '../../../components/OtherExcursion/OtherExcursion.tsx';
 import { PhotosModal } from '../../../components/PhotosModal/PhotosModal.tsx';
 import { useState } from 'react';
-import { useMediaQuery } from '../../../hooks/useMediaQuery.ts';
-import { SingleItemSlider } from '../../../components/SingleItemSlider/SingleItemSlider.tsx';
+// import { useMediaQuery } from '../../../hooks/useMediaQuery.ts';
+// import { SingleItemSlider } from '../../../components/SingleItemSlider/SingleItemSlider.tsx';
 // import {useParams} from "react-router-dom";
 
 export const TourItemPage = () => {
@@ -26,7 +26,7 @@ export const TourItemPage = () => {
   );
   const tour: ToursCollectionResponseItemType = toursData[0];
   const [modalIsActive, setModalIsActive] = useState(false);
-  const matches = useMediaQuery('(max-width: 428px)');
+  // const matches = useMediaQuery('(max-width: 428px)');
 
   const handleSetModal = () => {
     setModalIsActive(!modalIsActive);
@@ -41,7 +41,7 @@ export const TourItemPage = () => {
       <h1 className={s.pageTitle}>{tour.title}</h1>
       <div className={s.gridContainer}>
         <ItemInfoModal rating={4.8} visitors={101} reviewsCount={34} />
-        {matches && <SingleItemSlider />}
+        {/* {matches && <SingleItemSlider />} */}
         <PhotosFrame callback={handleSetModal} />
         <OrderModal
           //rating={Math.trunc(tour.totalPoints / tour.visitors).toString()}
