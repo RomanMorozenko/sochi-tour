@@ -18,3 +18,4 @@ export const db = getFirestore();
 export const excursionsData = collection(db, 'excursions');
 export const excursionReviewsData = collection(db, 'excursionsReviews');
 export const toursData = collection(db, 'tours');
+export const excursionsDatesData = collection(db, 'excur-dates');

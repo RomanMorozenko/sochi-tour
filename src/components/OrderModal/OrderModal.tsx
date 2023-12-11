@@ -3,12 +3,14 @@ import { ActionButton } from '../ActionButton/ActionButton.tsx';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import { useAppDispatch } from '../../hooks/useAppDispatch.ts';
 import { pickDate } from '../../pages/order-reducer.ts';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Tooltip from '@mui/material/Tooltip';
+import { getDates } from '../../state/datesSlice/datesSlice.ts';
+import { useAppSelector } from '../../hooks/useAppSelector.ts';
 
 type OrderModalPropsType = {
   startingPrice: string;
@@ -20,6 +22,18 @@ export const OrderModal = ({ startingPrice, description }: OrderModalPropsType) 
   const dispatch = useAppDispatch();
   const date = Date.now();
   const [value, setValue] = useState<Dayjs | null>(dayjs(date));
+  const bookedDates = useAppSelector((state) => state.dates);
+  const [bookedDayjsDates, setBookedDayjsDates] = useState<any>([]);
+  //const bookedDayjsDates = bookedDates.map((date) => dayjs(date, 'DD.MM.YYYY'));
+  console.log(bookedDayjsDates);
+
+  useEffect(() => {
+    dispatch(getDates({}));
+  }, [dispatch]);
+
+  useEffect(() => {
+    setBookedDayjsDates(bookedDates.map((date) => dayjs(date, 'DD.MM.YYYY')));
+  }, [bookedDates]);
 
   const handleButtonClick = () => {
     const day = value?.toDate().getDate();
@@ -35,6 +49,9 @@ export const OrderModal = ({ startingPrice, description }: OrderModalPropsType) 
       <div className={s.moduleDatePicker}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
+            shouldDisableDate={(date) =>
+              bookedDayjsDates.some((bookedDate: any) => bookedDate.isSame(date, 'day'))
+            }
             className={s.dateInput}
             value={value}
             onChange={(newValue) => setValue(newValue)}

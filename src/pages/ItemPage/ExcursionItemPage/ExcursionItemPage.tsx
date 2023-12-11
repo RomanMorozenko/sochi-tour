@@ -46,7 +46,7 @@ export const ExcursionItemPage = () => {
         <PhotosFrame callback={handleSetModal} />
         <PhotosModal active={modalIsActive} setActive={handleSetModal} />
         <OrderModal
-          rating={Math.trunc(excursion.totalPoints / excursion.visitors).toString()}
+          // rating={Math.trunc(excursion.totalPoints / excursion.visitors).toString()}
           duration={excursion.duration}
           peopleCount={excursion.visitors.toString()}
           startingPrice={excursion.price.toString()}

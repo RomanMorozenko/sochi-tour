@@ -29,7 +29,7 @@ export const Header = () => {
 
   const handleProfileClick = () => {
     handleClose();
-    navigate('');
+    navigate('/profile');
   };
 
   const handleLogout = async () => {

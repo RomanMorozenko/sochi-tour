@@ -5,13 +5,15 @@ import { toursReducer } from '../pages/tours-reducer.ts';
 import { orderReducer } from '../pages/order-reducer.ts';
 import { userReducer } from '../state/userSlice/userSlice.ts';
 import { appReducer } from '../state/appSlice/appSlice.ts';
+import { datesReducer } from '../state/datesSlice/datesSlice.ts';
 
 const rootReducer = combineReducers({
   app: appReducer,
   excursions: excursionsReducer,
   tours: toursReducer,
   order: orderReducer,
-  user: userReducer
+  user: userReducer,
+  dates: datesReducer
 });
 
 export const store = configureStore({

@@ -1,5 +1,10 @@
 import { getDocs } from 'firebase/firestore';
-import { excursionReviewsData, excursionsData, toursData } from './firebase-config.ts';
+import {
+  excursionReviewsData,
+  excursionsData,
+  excursionsDatesData,
+  toursData
+} from './firebase-config.ts';
 
 // loaders
 export const excursionsLoader = async () => {
@@ -29,6 +34,16 @@ export const toursLoader = async () => {
   });
   return alldata;
 };
+export const excursionsDatesLoader = async () => {
+  const querySnapshot = await getDocs(excursionsDatesData);
+  let alldata: Array<string> = [];
+  querySnapshot.forEach(async (doc) => {
+    const data = doc.data();
+    const dates = data['dates'];
+    alldata = [...dates];
+  });
+  return alldata;
+};
 
 export const getDataFromDB = async (
   dispatch: any,
@@ -36,10 +51,8 @@ export const getDataFromDB = async (
   actionCreatorExcursions: any
 ) => {
   const excursions: ExcursionsCollectionResponseType = await excursionsLoader();
-  // console.log(excursions)
   dispatch(actionCreatorExcursions(excursions));
   const tours: ToursCollectionResponseType = await toursLoader();
-  // console.log(tours)
   dispatch(actionCreatorTours(tours));
   return null;
 };

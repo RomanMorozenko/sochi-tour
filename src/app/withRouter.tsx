@@ -77,13 +77,6 @@ export const WithRouter = () => {
     }
   ];
 
-  // const privateRoutes: RouteObject[] = [
-  //   {
-  //     path: '/profile',
-  //     element: <ProfilePage />
-  //   }
-  // ];
-
   const router = createBrowserRouter([
     ...Routes,
     {
