@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ExcursionsCollectionResponseType } from '../utils/loaders.ts';
+import { ExcursionsCollectionResponseType } from '../../utils/loaders.ts';
 
 // export type ExcursionItemType = {}
 // export type ExcursionsStateType = []

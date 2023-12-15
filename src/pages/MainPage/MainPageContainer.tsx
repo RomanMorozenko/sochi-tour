@@ -7,7 +7,7 @@ export const MainPageContainer = () => {
 
   const title = getSectionTitle(currentSection);
 
-  return !currentSection ? (
+  return !currentSection || !title ? (
     <MainPageMainSection />
   ) : (
     <MainPageSideSection param={currentSection} title={title} />

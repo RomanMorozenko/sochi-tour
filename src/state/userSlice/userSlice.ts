@@ -3,6 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { AuthArgsType } from './userSlice.types';
 import { FirebaseError } from '@firebase/util';
+import { setFavoritesForUser } from '../../utils/setters';
+import { favoritesLoader } from '../../utils/loaders';
+import { setFavorites } from '../favoritesSlice/favoritesSlice';
 
 type UserType = {
   email: string;
@@ -36,9 +39,10 @@ export const signInThunk = createAsyncThunk<any, AuthArgsType, any>(
     try {
       const auth = getAuth();
       const response = await signInWithEmailAndPassword(auth, email, password);
-      console.log(response);
       const user = response.user;
       dispatch(setUser(user.email || ''));
+      const favs = await favoritesLoader(email);
+      dispatch(setFavorites(favs));
     } catch (err: any) {
       if (err instanceof FirebaseError) {
         return rejectWithValue(err.message);
@@ -55,8 +59,8 @@ export const signUpThunk = createAsyncThunk<any, AuthArgsType, any>(
     try {
       const auth = getAuth();
       const response = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(response);
       const user = response.user;
+      setFavoritesForUser(user.email || '');
       dispatch(setUser(user.email || ''));
     } catch (err: any) {
       if (err instanceof FirebaseError) {

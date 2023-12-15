@@ -1,11 +1,12 @@
 import { AnyAction, combineReducers, configureStore } from '@reduxjs/toolkit';
-import { excursionsReducer } from '../pages/excursions-reducer.ts';
+import { excursionsReducer } from '../state/excursionsSlice/excursionsSlice.ts';
 import thunkMiddleware, { ThunkDispatch } from 'redux-thunk';
-import { toursReducer } from '../pages/tours-reducer.ts';
-import { orderReducer } from '../pages/order-reducer.ts';
+import { toursReducer } from '../state/toursSlice/toursSlice.ts';
+import { orderReducer } from '../state/orderSlice/order-reducer.ts';
 import { userReducer } from '../state/userSlice/userSlice.ts';
 import { appReducer } from '../state/appSlice/appSlice.ts';
 import { datesReducer } from '../state/datesSlice/datesSlice.ts';
+import { favoritesReducer } from '../state/favoritesSlice/favoritesSlice.ts';
 
 const rootReducer = combineReducers({
   app: appReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   tours: toursReducer,
   order: orderReducer,
   user: userReducer,
-  dates: datesReducer
+  dates: datesReducer,
+  favorites: favoritesReducer
 });
 
 export const store = configureStore({

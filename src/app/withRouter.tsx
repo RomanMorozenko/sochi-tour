@@ -15,8 +15,8 @@ import { SignUp } from '../pages/SignUp';
 import { SignIn } from '../pages/SignIn';
 import { getDataFromDB } from '../utils/loaders';
 import { useAppDispatch } from '../hooks/useAppDispatch';
-import { setTours } from '../pages/tours-reducer';
-import { setExcursions } from '../pages/excursions-reducer';
+import { setTours } from '../state/toursSlice/toursSlice';
+import { setExcursions } from '../state/excursionsSlice/excursionsSlice';
 import { ProfilePage } from '../pages/Profile/profile';
 
 export const WithRouter = () => {

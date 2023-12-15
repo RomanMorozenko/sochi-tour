@@ -3,6 +3,7 @@ import {
   excursionReviewsData,
   excursionsData,
   excursionsDatesData,
+  favoritesData,
   toursData
 } from './firebase-config.ts';
 
@@ -43,6 +44,19 @@ export const excursionsDatesLoader = async () => {
     alldata = [...dates];
   });
   return alldata;
+};
+
+export const favoritesLoader = async (userEmail: string) => {
+  const querySnapshot = await getDocs(favoritesData);
+  const favorites: Array<any> = [];
+  querySnapshot.forEach(async (doc) => {
+    const resData = doc.data();
+    if (resData.id == userEmail) {
+      favorites.push(resData.excursions);
+    }
+  });
+  favorites.push(favorites);
+  return favorites;
 };
 
 export const getDataFromDB = async (

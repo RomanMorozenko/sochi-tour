@@ -6,7 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useEffect, useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
 import { useAppDispatch } from '../../hooks/useAppDispatch.ts';
-import { pickDate } from '../../pages/order-reducer.ts';
+import { pickDate } from '../../state/orderSlice/order-reducer.ts';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Tooltip from '@mui/material/Tooltip';
 import { getDates } from '../../state/datesSlice/datesSlice.ts';
